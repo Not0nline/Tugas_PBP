@@ -1,8 +1,19 @@
-<h1>Inventory</h1>
+<style>
+    .name-size {
+        font-size: 24px;
+        font-weight: bold; 
+        
+    }
+</style>
 
-<h5>Name: </h5>
-<p>{{ name }}</p>
-<h5>Amount: </h5>
-<p>{{ amount }}</p> 
-<h5>Description :</h5>
-<p>{{ description }}</p>
+
+<h1>Brain Inventory</h1>
+<ul>
+    {% for data in data_list %}
+
+        <p><span class="name-size">• {{ data.name }}</span> - {{ data.description }}</p>
+        <p>Amount left : {{ data.amount }} </p>
+        <br>
+    
+    {% endfor %}
+</ul>
