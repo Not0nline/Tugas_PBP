@@ -6,14 +6,23 @@
     }
 </style>
 
+<style>
+    .border {
+        border-style: double;
+    }
+</style>
+
 
 <h1>Brain Inventory</h1>
 <ul>
-    {% for data in data_list %}
+    <div class="border">
 
+        {% for data in data_list %}
+        
         <p><span class="name-size">• {{ data.name }}</span> - {{ data.description }}</p>
         <p>Amount left : {{ data.amount }} </p>
         <br>
-    
-    {% endfor %}
+        
+        {% endfor %}
+    </div>
 </ul>

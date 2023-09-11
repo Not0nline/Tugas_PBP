@@ -10,8 +10,9 @@
 - setelah itu, saya migrasikan agar kelihatan perubahannya
 - setelah itu, saya membuat test case agar mengetahui error-error yang ditest
 
-2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut 
-kaitan antara urls.py, views.py, models.py, dan berkas html.
+2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, 
+models.py, dan berkas html.
+
 
 
 
