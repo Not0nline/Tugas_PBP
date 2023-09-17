@@ -13,16 +13,47 @@
 </style>
 
 
-<h1>Brain Inventory</h1>
-<ul>
-    <div class="border">
+{% extends 'base.html' %}
 
-        {% for data in data_list %}
-        
-        <p><span class="name-size">• {{ data.name }}</span> - {{ data.description }}</p>
-        <p>Amount left : {{ data.amount }} </p>
-        <br>
-        
-        {% endfor %}
-    </div>
-</ul>
+{% block content %}
+    <h1>Brain Inventory</h1>
+
+    <p class="name-size"> {{ name }}</p>
+
+    <p>• kelas : {{ kelas }}</p>
+
+    <p>• description : {{ description }} </p>
+
+
+{% endblock content %}
+
+...
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Date Added</th>
+    </tr>
+
+    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+    {% for product in products %}
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.date_added}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_product' %}">
+    <button>
+        Add New Product
+    </button>
+</a>
+
+{% endblock content %}
