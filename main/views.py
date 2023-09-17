@@ -6,11 +6,17 @@ from django.core import serializers
 from main.models import Product
 
 def show_main(request):
-    
+    # data_list = [
+    #     {'name': 'Adrial', 'kelas': "PBP A", 'description': 'Very Stressed'},
+    # ]
+
+    datas = Product.objects.all()
+
     context = {
-        'name': 'Adrial', 
+        'name' : 'Adrial',
         'kelas': "PBP A", 
-        'description': 'very stressed',
+        'description': 'Very Stressed',
+        'datas': datas
     }
 
     return render(request, "main.html", context)
@@ -23,7 +29,7 @@ def create_product(request):
         return HttpResponseRedirect(reverse('main:show_main'))
 
     context = {'form': form}
-    return render(request, "main.html", context)
+    return render(request, "create_product.html", context)
 
 def show_xml(request):
     data = Product.objects.all()
