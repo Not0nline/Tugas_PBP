@@ -5,6 +5,7 @@ from main.views import show_main, create_product, show_xml, show_json, show_xml_
 app_name = 'main'
 
 urlpatterns = [
+    path('main/', show_main, name='show_main'),
     path('', show_main, name='show_main'),
     path('create-product', create_product, name='create_product'),
     path('xml/', show_xml, name='show_xml'), 
