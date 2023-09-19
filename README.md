@@ -64,4 +64,11 @@ II. Tugas 3
 - membuat berkas baru (Procfile, pbp-deploy.yml, .dockerignore, Dockerfile)
 - import environ dan os serta fungsi-fungsi mereka pada settings.py untuk dapat menggunakan environ pada web ini
     
+![image](https://github.com/Not0nline/Tugas_PBP/assets/80256853/ad5d7569-c62e-42ff-bbec-98d6b8fb42bc)
+![image](https://github.com/Not0nline/Tugas_PBP/assets/80256853/1dfc7deb-1a9b-4764-8b91-f37265a6971f)
+![image](https://github.com/Not0nline/Tugas_PBP/assets/80256853/2c5e6928-0cbe-4a04-b59d-dfa610b39f25)
+![image](https://github.com/Not0nline/Tugas_PBP/assets/80256853/9511f422-282c-4d45-a776-cb4e68a76db6)
+![image](https://github.com/Not0nline/Tugas_PBP/assets/80256853/a4142b61-4fd8-47f7-8336-3cdb5d8bea66)
+
+
 
