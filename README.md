@@ -1,3 +1,4 @@
+I. Tugas 2
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 - Yang pertama saya lakukan adalah membaut repository baru di github dan folder baru untuk local saya dan menyambungkannya satu dengan yang lain. 
 - langkan kedua saya adalah menambahkan requirements.txt yang telah ditentukan sebelumnya
@@ -38,3 +39,29 @@ Iya, django bisa jalan dengan tidak adanya virtual envorinment, tapi sebaiknya k
 - Model-View-ViewModel (MVVM):
     Definisi: Arsitektur perangkat lunak yang memisahkan Model (data), View (tampilan), dan ViewModel (perantara antara Model dan View).
     Perbedaan Utama: MVVM menekankan penggunaan ViewModel sebagai perantara untuk mengikuti perubahan dalam Model tanpa berkomunikasi langsung dengan Model.
+
+
+II. Tugas 3
+1. Apa perbedaan antara form POST dan form GET dalam Django?
+- POST bersifat aman dan dapat digunakan untuk digunakan untuk mengirim data rahasia, seperti kata sandi, yang tidak tampil di URL
+- GET bersifat sederhana dan dapat digunakan untuk mengambil data dari URL, cocok untuk pencarian dan tautan berbagi
+
+2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+- XML adalah format struktur data yang fleksibel dan digunakan untuk penukaran data
+- JSON adalah format data sederhana yang mudah dibaca oleh manusia dan digunakan untuk API
+- HTML adalah bahasa markup untuk tampilan web yang digunakan untuk menampilkan web
+
+3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+- JSON mudah dibaca oleh manusia, bersifat ringan dan mudah diproses oleh komputer
+- Formatnya mendukung struktur data yang fleksibel, cocok untuk RESTful API, dan kompatibel dengan banyak bahasa pemrograman
+- membuatnya komunikasi antara klien dan server dalam aplikasi web lebih mudah
+
+4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+- membuat base.html
+- membuat create_page.html sebagai page baru yang diakses jika button pada main.html diclick
+- masukan button create_product yang akan membuka create_product.html pada main.html
+- buatlah fungsi baru untuk view menggunakan XML, JSON, XML by ID, JSON by ID dalam views.py
+- import dan masukan fungsi XML, JSON, XML by ID, JSON by ID pada urlpatterns yang ada di urls.py
+- menambah django-environment pada requirements.txt
+- membuat berkas baru (Procfile, pbp-deploy.yml, .dockerignore, Dockerfile)
+- import environ dan os serta fungsi-fungsi mereka pada settings.py untuk dapat menggunakan environ pada web ini

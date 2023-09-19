@@ -6,17 +6,16 @@ from django.core import serializers
 from main.models import Product
 
 def show_main(request):
-    # data_list = [
-    #     {'name': 'Adrial', 'kelas': "PBP A", 'description': 'Very Stressed'},
-    # ]
 
     datas = Product.objects.all()
+    total_amount = sum(data.amount for data in datas)
 
     context = {
         'name' : 'Adrial',
         'kelas': "PBP A", 
         'description': 'Very Stressed',
-        'datas': datas
+        'datas': datas,
+        'total_amount': total_amount,
     }
 
     return render(request, "main.html", context)
