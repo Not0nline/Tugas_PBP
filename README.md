@@ -13,8 +13,7 @@ I. Tugas 2
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, 
 models.py, dan berkas html.
-
-
+![IMG_20230911_231729](https://github.com/Not0nline/Tugas_PBP/assets/80256853/5645122c-4a10-4650-b98a-0cf87cfb7006)
 
 
 3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
@@ -38,9 +37,8 @@ Iya, django bisa jalan dengan tidak adanya virtual envorinment, tapi sebaiknya k
 
 - Model-View-ViewModel (MVVM):
     Definisi: Arsitektur perangkat lunak yang memisahkan Model (data), View (tampilan), dan ViewModel (perantara antara Model dan View).
-    Perbedaan Utama: MVVM menekankan penggunaan ViewModel sebagai perantara untuk mengikuti perubahan dalam Model tanpa berkomunikasi langsung dengan Model.
-
-
+    Perbedaan Utama: MVVM menekankan penggunaan ViewModel sebagai perantara untuk mengikuti perubahan dalam Model tanpa berkomunikasi langsung dengan Model.4
+    
 II. Tugas 3
 1. Apa perbedaan antara form POST dan form GET dalam Django?
 - POST bersifat aman dan dapat digunakan untuk digunakan untuk mengirim data rahasia, seperti kata sandi, yang tidak tampil di URL
@@ -65,3 +63,5 @@ II. Tugas 3
 - menambah django-environment pada requirements.txt
 - membuat berkas baru (Procfile, pbp-deploy.yml, .dockerignore, Dockerfile)
 - import environ dan os serta fungsi-fungsi mereka pada settings.py untuk dapat menggunakan environ pada web ini
+    
+
