@@ -1,4 +1,5 @@
 I. Tugas 2
+=======  
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 - Yang pertama saya lakukan adalah membaut repository baru di github dan folder baru untuk local saya dan menyambungkannya satu dengan yang lain. 
 - langkan kedua saya adalah menambahkan requirements.txt yang telah ditentukan sebelumnya
@@ -40,6 +41,7 @@ Iya, django bisa jalan dengan tidak adanya virtual envorinment, tapi sebaiknya k
     Perbedaan Utama: MVVM menekankan penggunaan ViewModel sebagai perantara untuk mengikuti perubahan dalam Model tanpa berkomunikasi langsung dengan Model.4
     
 II. Tugas 3
+=======  
 1. Apa perbedaan antara form POST dan form GET dalam Django?
 - POST bersifat aman dan dapat digunakan untuk digunakan untuk mengirim data rahasia, seperti kata sandi, yang tidak tampil di URL
 - GET bersifat sederhana dan dapat digunakan untuk mengambil data dari URL, cocok untuk pencarian dan tautan berbagi
