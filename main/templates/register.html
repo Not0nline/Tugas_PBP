@@ -4,31 +4,73 @@
     <title>Register</title>
 {% endblock meta %}
 
-{% block content %}  
+{% block content %}
 
-<div class = "login">
-    
-    <h1>Register</h1>  
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
 
-        <form method="POST" >  
-            {% csrf_token %}  
-            <table>  
-                {{ form.as_table }}  
-                <tr>  
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Daftar"/></td>  
-                </tr>  
-            </table>  
-        </form>
+    .login {
+        width: 700px;
+        margin: 0 auto;
+    }
 
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
+    .login table {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .login td {
+        padding: 5px;
+    }
+
+    .login input[type="text"],
+    .login input[type="password"],
+    .login input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        box-sizing:border-box;
+    }
+
+    .login input[type="submit"] {
+        background-color: #5b6574;
+        color: white;
+        cursor: pointer;
+    }
+
+    .login input[type="submit"]:hover {
+        background-color: #727981;
+    }
+</style>
+
+<div class="login">
+
+    <h1>Register</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Daftar"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
     {% endif %}
 
-</div>  
+</div>
 
 {% endblock content %}
