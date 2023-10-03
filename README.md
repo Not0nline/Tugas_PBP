@@ -125,3 +125,36 @@ ii. Resiko yang harus diwaspadai :
 - membuat button logout pada main.html sehingga dapat melakukan fungsi logout ketika sudah selesai 
 - hubungkan logout pada urls.py
 - membuat setiap barang pada inventory terhubung dengan setiap user sehingga hanya menampilkan inventory yang ada pada suatu orang tersebut
+
+
+IV. Tugas 5
+=======  
+1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+- Element selector dalam CSS digunakan ketika ketika ingin memberi style pada setiap elemen tersebut dalam html
+
+2. Jelaskan HTML5 Tag yang kamu ketahui.
+- header : mengandung konten awal (pengantar)
+- main : untuk konten utama halaman web
+- section : untuk mengelompokkan konten yang saling terkait
+- footer : untuk bagian akhir suatu halaman
+- nav : untuk bagian navigasi situs web
+- template : untuk menyimpan konten HTML yang tidak ditampilkan saat halaman dimuat
+- time : untuk merepresentasikan tanggal atau waktu dalam html
+
+3. Jelaskan perbedaan antara margin dan padding.
+- padding : untuk mengendali batas ruang di dalam batas elemen
+- margin : untuk mengendali batas ruang di luar batas elemen
+
+4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+- Bootstrap: framework CSS yang paling sering digunakan dan memiliki banyak komponen siap pakai.
+  kapan dipakai? saat ingin membangun prototipe dengan cepat, jika ingin konfigurasi lebih sedikit
+- Tailwind: framework CSS utilitas yang memungkinkan membangun desain kustom tanpa meninggalkan HTML.
+  kapan dipakai? saat ingin kontrol lebih besar, ingin flexibilitas yang lebih besar
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+- menambah bootstrap pada shopping list dengan masukannya dalam templates/base.html
+- membuat html edit_product dan membuat fungsi untuk masuk ke edit_product di views.py dan masukan dalam urls.py
+- membuat fungsi delete_product di views.py dan masukan dalam urls.py
+- masukan tombol yang melakukan fungsi edit_product dan delete_product di main.html
+- mengganti tabel dalam main.html ke cards agar mengganti tampilan dari tabel menjadi cards
+- mengedit tampilan pada semua html pada templates menjadi tampilan minimalis

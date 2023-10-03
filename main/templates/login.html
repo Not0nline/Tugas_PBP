@@ -6,7 +6,59 @@
 
 {% block content %}
 
-<div class = "login">
+<style>
+    .login {
+        width: 300px;
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .login h1 {
+        text-align: center;
+        color: #5b6574;
+    }
+
+    .login table {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .login table td {
+        padding: 5px;
+    }
+
+    .login input[type="text"],
+    .login input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        box-sizing:border-box;
+    }
+
+    .login input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #5b6574;
+        border: none;
+        color: white;
+    }
+
+    .login input[type="submit"]:hover {
+        background-color: #727981;
+    }
+
+    .login a {
+        text-decoration: none;
+        color: #5b6574;
+    }
+
+    .login a:hover {
+        color: #727981;
+    }
+</style>
+
+<div class="login">
 
     <h1>Login</h1>
 
@@ -14,12 +66,12 @@
         {% csrf_token %}
         <table>
             <tr>
-                <td>Username: </td>
+                <td>Username:</td>
                 <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
             </tr>
                     
             <tr>
-                <td>Password: </td>
+                <td>Password:</td>
                 <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
             </tr>
 

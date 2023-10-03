@@ -1,69 +1,150 @@
-<style>
-    .name-size {
-        font-size: 24px;
-        font-weight: bold; 
-        
-    }
-</style>
-
-<style>
-    table {
-        border-collapse: collapse; 
-        width: 100%;
-    }
-
-    th, td {
-        border: 2px double black; 
-        padding: 8px;
-        text-align: left; 
-    }
-</style>
 
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Identity</h1>
 
-    <p class="name-size"> {{ name }}</p>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
 
-    <p>• kelas : {{ kelas }}</p>
+    .navbar {
+        background-color: #f8f9fa;
+    }
 
-    <p>• description : {{ description }} </p>
+    .navbar-brand {
+        color: #5b6574;
+    }
+
+    .btn-outline-success {
+        color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-outline-dark {
+        color: #343a40;
+        border-color: #343a40;
+    }
+
+    h1 {
+        text-align: center;
+        color: #5b6574;
+    }
+
+    p {
+        text-align: left;
+        color: #6c757d;
+    }
+
+    .btn-outline-warning, .btn-outline-danger {
+        margin-top: 10px;
+    }
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 20%;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        float: left;
+        margin-right: 2.5%;
+        margin-left: 2.5%;
+        margin-bottom: 2.5%;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .container {
+        padding: 2px 16px 20px 16px;
+    }
+
+    .container h4 {
+        padding: 10px;
+        text-decoration: underline;
+        padding-top: 35px;
+    }
+
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .description {
+        font-size: 1em;
+        color: #6c757d;
+        padding: 10px;
+        border-top: 1px solid #dee2e6;
+        border-bottom: 1px solid #dee2e6;
+        margin: 10px 0;
+    }
+</style>
 
 
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Name: {{name}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">•{{description}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" justify-content: flex-end>
+        <div class="container-fluid">
+            <a href="{% url 'main:create_product' %}">
+                <button class="btn btn-outline-success">
+                    Add New Product
+                </button>
+            </a>
+        </nav>
+        
+        <nav justify-content: flex-end>
+            <div class="container-fluid">
+                <a href="{% url 'main:logout' %}">
+                    <button class="btn btn-outline-dark">
+                        Logout
+                    </button>
+                </a>
+            </div>
+        </nav>
+      </div>
+    </div>
+  </nav>
+<br/>
     <h1>Brain Inventory</h1>
-    <p>Kamu menyimpan {{ total_amount }} item pada aplikasi ini</p>
+    <p style= "text-align:center">Kamu menyimpan {{ total_amount }} item pada aplikasi ini</p>
 
-    <table>
-    <tr>
-        <th>Name</th>
-        <th>Amount</th>
-        <th>Description</th>
-    </tr>
-
+<div class="row">
     {% for data in datas %}
-        <tr>
-            <td>{{data.name}}</td>
-            <td>{{data.amount}}</td>
-            <td>{{data.description}}</td>
-        </tr>
+        <div class="card">
+            <div class="container">
+                <h4><b>{{data.name}}</b></h4>
+                <p>Amount: {{data.amount}}</p>
+                <p class="description">{{data.description}}</p>
+                <a href="{% url 'main:edit_product' data.pk %}">
+                    <button class="btn btn-outline-warning">
+                        Edit
+                    </button>
+                </a>
+                <a href="{% url 'main:delete_product' data.pk %}">
+                    <button class="btn btn-outline-danger">
+                        Delete
+                    </button>
+                </a>
+            </div>
+        </div>
     {% endfor %}
-</table>
+    </div>
 
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 
-<br />
-
-<a href="{% url 'main:create_product' %}">
-    <button>
-        Add New Product
-    </button>
-</a>
-
-<a href="{% url 'main:logout' %}">
-    <button>
-        Logout
-    </button>
-</a>
 
 {% endblock content %}
