@@ -80,8 +80,26 @@
         border-bottom: 1px solid #dee2e6;
         margin: 10px 0;
     }
-</style>
 
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+</style>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -97,13 +115,26 @@
     </div>
 
     
+    
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary" justify-content: flex-end>
         <div class="container-fluid">
             <a href="{% url 'main:create_product' %}">
                 <button class="btn btn-outline-success">
                     Add New Product
                 </button>
-            </a>
+            </a> 
+        </nav>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" justify-content: flex-end>
+        <div class="container-fluid">
+            <!-- <a href="{% url 'main:create_product' %}"> -->
+                <!-- <button class="btn btn-outline-success">
+                    Add New Product
+                </button> -->
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Add Product by AJAX
+                </button>
+            <!-- </a> -->
         </nav>
         
         <nav justify-content: flex-end>
@@ -119,8 +150,105 @@
     </div>
   </nav>
 <br/>
-    <h1>Brain Inventory</h1>
-    <p style= "text-align:center">Kamu menyimpan {{ total_amount }} item pada aplikasi ini</p>
+<h1>Brain Inventory</h1>
+<p style= "text-align:center">Kamu menyimpan {{ total_amount }} item pada aplikasi ini</p>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" onsubmit="return false;">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="col-form-label">Amount:</label>
+                        <input type="number" class="form-control" id="amount" name="amount"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- perlu css -->
+<div id="product_container"></div>
+
+<div class="login-session-info">
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
+</div>
+
+<script>
+    async function getProducts() {
+        return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+    }
+
+    async function refreshProducts() {
+        const products = await getProducts();
+        const productContainer = document.getElementById("product_container");
+        
+        // Clear the existing content
+        productContainer.innerHTML = "";
+
+        products.forEach((item) => {
+            // Create a card element
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            // Create card content
+            card.innerHTML = `
+                <div class="card-body">
+                    <h5 class="card-title">${item.fields.name}</h5>
+                    <p class="card-text">${item.fields.description}</p>
+                    <p class="card-text">Amount: ${item.fields.amount}</p>
+                    <button class="btn btn-outline-danger" onclick="deleteProduct(${item.pk})">Delete</button>
+                </div>
+            `;
+
+            // Append the card to the container
+            productContainer.appendChild(card);
+        });
+    }
+
+
+    refreshProducts()
+
+    function addProduct() {
+        fetch("{% url 'main:add_product_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshProducts)
+
+        document.getElementById("form").reset()
+        return false
+    }
+
+    document.getElementById("button_add").onclick = addProduct
+    
+    async function deleteProduct(productID) {
+        
+        fetch(`/delete-product-ajax/${productID}/`, {
+        method: "POST",
+        }).then(refreshProducts)
+
+    }
+</script>
+<!-- 
 
 <div class="row">
     {% for data in datas %}
@@ -144,7 +272,6 @@
     {% endfor %}
     </div>
 
-<h5>Sesi terakhir login: {{ last_login }}</h5>
 
 
-{% endblock content %}
+{% endblock content %} -->
