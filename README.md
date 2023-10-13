@@ -156,3 +156,26 @@ IV. Tugas 5
 - masukan tombol yang melakukan fungsi edit_product dan delete_product di main.html
 - mengganti tabel dalam main.html ke cards agar mengganti tampilan dari tabel menjadi cards
 - mengedit tampilan pada semua html pada templates menjadi tampilan minimalis
+
+V. Tugas 6
+=======  
+1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+- Kalau synchronus programming, kode akan dieksekusi secara linear, dimana kode akan dieksekusi dari atas ke bawa secara berurutan, sedangkan kalau asynchronus programming adalah programming event driven, dimana satu kode akan terjadi jika ada event yang terjadi sebelumnya dan tidak berjalan secara linear
+
+2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+- paradigma event-driven programing adalah pendekatan pemograman ketika suatu event terjadi dari user. Contoh penerapan di tugas ada ketika kita menekan button untuk "add product by AJAX" (document.getElementById("button_add").onclick = addProduct)
+
+3. Jelaskan penerapan asynchronous programming pada AJAX.
+- penerapan asynchronus programming pada AJAX dapat mengirim dan menerima data dari server tanpa menggangu alur kode karena kode yang jalan hanya dilakukan ketika ada event (input dari user). Yang pertama dilakukan adalah pemanggilan AJAX Javascript dari browser untuk mengaktifkan XMLHttpRequest dan mengirim HTTP request tersebut ke server. XMLHttpRequest akan digunakan untuk penukaran data ke server. selanjutnya akan dilakukan adalah cek apakah data ersebut ada pada database yang ingin diambil. Selanjutnya adalah memproses data tersebut sesuai dengan fungsi yang ingin dibuat. Asynchronus programming membuat web lebih interaktif karena dapat masih menjalankan fungsi tanpa jeda
+
+4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+- Fetch API merupakan bagian spesifikasi JavaScript yang lebih modern dan tidak memerlukan pustaka tambahan, lebih ringan dalam sisi fitur sehingga membuat aplikasi lebih efisien, dan karena munggunakan promise, maka membuat lebih mudah untuk mengelola operasi asynchronus. Kekurangannya berupa tidak disupport setiap browser terutama browser yang lebih tua
+- jQuery memiliki kelebihan berupa bisa dijalankan di semua browser, dan mempunyai sintax yang lebih sederhana, tapi kekurangannya adalah memiliki ukuran yang lebih besar sehingga membuat aplikasi lebih berat.
+- Untuk menggunakan mana dari kedua, sebaiknya kita menggunakan Fetch API agar lebih gampang untuk lebih ringan server dan tidak mengandalkan pustaka eksternal 
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+- membuat fungsi untuk ajax seperti add product, delete product, create product agar dapat melakukan asynchronus programming
+- masukan function pada path urls.py
+- membuat ulang main.html
+- pertama, membuat div agar bisa memuat tabel
+- kedua, membuat script agar sesuatu hal dilakukan ketika ada event yang dilakukan user (seperti server akan membuat window kecil baru ketika kita add server dan refreshproduct agar langsung nampil dalam server, dan hal yang sama ketika kita delete product, kita langsung delete product by id dan refresh item pada data kita sehingga tidak perlu refresh untuk mendapat data item terbaru).
