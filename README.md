@@ -10,7 +10,7 @@ I. Tugas 2
 - setelah itu, saya membuat html file bernama main di folder baru bernama templates
 - setelah itu saya bikin back-end di models.py untuk handle data yang akan ditampilkan
 - setelah itu, saya migrasikan agar kelihatan perubahannya
-- setelah itu, saya membuat test case agar mengetahui error-error yang ditest
+- setelah itu, saya membuat test case agar mengetahui error-error yang ditest 
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, 
 models.py, dan berkas html.
