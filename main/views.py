@@ -1,8 +1,9 @@
 import datetime
+import json
 from main.forms import ProductForm
 from main.models import Product
 from django.shortcuts import render, redirect
-from django.http import HttpResponseNotFound, HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseNotFound, HttpResponseRedirect, HttpResponse, JsonResponse
 from django.urls import reverse
 from django.core import serializers
 from django.contrib.auth.forms import UserCreationForm
@@ -114,7 +115,7 @@ def delete_product(request, id):
 
 def get_product_json(request):
     product_item = Product.objects.all()
-    return HttpResponse(serializers.serialize('json', product_item))
+    return HttpResponse(serializers.serialize('json', product_item), content_type='application/json')
 
 @csrf_exempt
 def add_product_ajax(request):
@@ -145,3 +146,24 @@ def delete_product_ajax(request, product_id):
             return HttpResponseNotFound(b"NOT FOUND")
 
     return HttpResponseNotFound()
+
+
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+
+        new_product = Product.objects.create(
+            user = request.user,
+            name = data["name"],
+            amount = int(data["amount"]),
+            description = data["description"]
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+    
